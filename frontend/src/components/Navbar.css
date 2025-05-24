@@ -1,0 +1,17 @@
+    /* --color-background-main: #10181B;
+    --color-background-secondary: #0B1011;
+    --color-white: #FFFFFF;
+    --color-gray: #9D9D9D;
+    --color-black: #040707;
+    --color-primary: #97773D;
+    --color-secondary: #325263; */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background-secondary);
+
+    width: 100vw;
+    height: 5vh;
+}

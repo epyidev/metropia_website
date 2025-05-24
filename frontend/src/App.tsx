@@ -1,11 +1,12 @@
 import React from 'react';
-import Auth from './components/Auth';
+import Home from './pages/Home';
 
 const App: React.FC = () => {
   return (
     <div>
-      <h1>Login System</h1>
-      <Auth />
+      <Home />
+      
+      
     </div>
   );
 };
