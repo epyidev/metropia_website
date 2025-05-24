@@ -60,17 +60,32 @@ body {
     --color-black: #040707;
     --color-primary: #97773D;
     --color-secondary: #325263;
+
+    color: var(--color-white);
+
+    background-color: var(--color-background-main);
 }
 
 .readzone {
     width: 64vw;
     overflow: visible;
     height: 100%;
-    background-color: red;
 }
 
 @media (max-width: 1300px) {
     .readzone {
         width: 95vw;
+    }
+}
+
+@media (max-width: 1300px) {
+    .desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 1300px) {
+    .mobile {
+        display: none;
     }
 }

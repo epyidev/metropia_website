@@ -10,6 +10,7 @@ const Login: React.FC = () => {
             const response = await login(email, password);
             alert(`Bienvenue ${response.data.username}`);
             localStorage.setItem('token', response.data.token);
+            localStorage.setItem('username', response.data.username);
         } catch (err) {
             alert('Identifiants incorrects');
         }
