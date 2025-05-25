@@ -105,10 +105,12 @@ body {
     border: 0.2vh solid var(--color-borderwhite);
     transition: 0.2s ease-in-out;
     user-select: none;
+    opacity: 1.0;
 }
 
 .mbutton:hover {
     filter: brightness(1.2);
+    opacity: 1.0;
     cursor: pointer;
     transition: 0.1s ease-in-out;
     text-shadow: 0vh 0vh 3vh rgba(255, 255, 255, 0.623);
@@ -119,7 +121,13 @@ body {
 }
 
 .mbutton.big {
-    padding: 1.2vh 2.5vh;
+    padding: 1.2vh 4.5vh;
+}
+
+.mbutton.small {
+    font-size: 2.0vh;
+    padding: 0.6vh 2.2vh;
+    font-family: "Urbanist Medium", sans-serif;
 }
 
 .mbutton.stroked {

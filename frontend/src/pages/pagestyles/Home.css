@@ -37,7 +37,7 @@
 .home .columns .column {
     width: 50%;
 
-    font-family: "Urbanist Medium", sans-serif;
+    font-family: "Urbanist", sans-serif;
     font-size: 2.0vh;
     color: var(--color-gray);
     text-align: justify;
@@ -46,6 +46,28 @@
 
 .home .columns img {
     width: 100%;
+}
+
+.home .prelegend {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4vh;
+
+}
+
+.home .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    font-family: "Urbanist Medium", sans-serif;
+    font-size: 2.0vh;
+    color: var(--color-gray);
+    text-align: center;
+    margin-top: 2vh;
+    width: 70%;
 }
 
 /* RESPONSIVE STYLES */
@@ -57,5 +79,32 @@
     
     .home .hero .logo {
         width: 70vw;
+    }
+
+    .home .columns { 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home .columns .column {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home .columns .column img {
+        max-width: 50%;
+    }
+
+    .home .legend {
+        width: 100%
+    }
+}
+
+@media (max-width: 650px) {
+    .home .columns .column img {
+        max-width: 100%;
     }
 }
