@@ -7,6 +7,7 @@ const SERVER_STATUS_URL = import.meta.env.VITE_CONNECTED_PLAYERS_API_URL;
 
 const Navbar: React.FC = () => {
     const [playerCount, setPlayerCount] = useState<number | null>(null);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     useEffect(() => {
         let isMounted = true;
@@ -38,21 +39,52 @@ const Navbar: React.FC = () => {
         };
     }, []);
 
+    useEffect(() => {
+        if (!isDropdownOpen) return;
+
+        const handleClickOutside = (event: MouseEvent) => {
+            const dropdown = document.querySelector('.profile');
+            if (dropdown && !dropdown.contains(event.target as Node)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isDropdownOpen]);
+
     return (
         <div className="navbar">
             <div className="readzone">
                 <div className="left">
                     <img className="logo" src="/images/logo_white.png" alt="Logo" />
-                    <div className="button desktop">Accueil</div>
+                    <div className="button desktop" onClick={() => window.location.href = "/"}>Accueil</div>
                     <div className="button desktop">Wiki</div>
                     <div className="button desktop">Nous soutenir</div>
                 </div>
                 <div className="right">
                     <FontAwesomeIcon className="mobile" icon={faBars} />
                     <div className="desktop">
-                        <div className="button profile">
-                            Invité
-                            <div className="arrow">▼</div>
+                        <div className="profile">
+                            <div className="main-button" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                                {localStorage.getItem("username") || "Invité"}
+                                <div className={`arrow${isDropdownOpen ? " rotated" : ""}`}>▼</div>
+                            </div>
+                            <div className="dropdown" style={{ display: isDropdownOpen ? "block" : "none" }}>
+                                {localStorage.getItem("username") ? (
+                                    <>
+                                        <div className="item">Mon profil</div>
+                                        <div className="item">Déconnexion</div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="item" onClick={() => window.location.href = "/login"}>Connexion</div>
+                                        <div className="item" onClick={() => window.location.href = "/register"}>Inscription</div>
+                                    </>
+                                )}
+                            </div>
                         </div>
                     </div>
                     <div className="predownload desktop">

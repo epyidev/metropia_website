@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { register } from '../api/auth';
+import Navbar from '../components/Navbar';
 
 const Register: React.FC = () => {
     const [username, setUsername] = useState('');
@@ -17,6 +18,7 @@ const Register: React.FC = () => {
 
     return (
         <div>
+            <Navbar />
             <h2>Inscription</h2>
             <input placeholder="Username" onChange={e => setUsername(e.target.value)} />
             <input placeholder="Email" onChange={e => setEmail(e.target.value)} />

@@ -60,10 +60,14 @@ body {
     --color-black: #040707;
     --color-primary: #97773D;
     --color-secondary: #325263;
+    --color-borderwhite: rgba(255, 255, 255, 0.05);
 
     color: var(--color-white);
 
     background-color: var(--color-background-main);
+    overflow-x: hidden;
+
+    user-select: none;
 }
 
 .readzone {
@@ -71,6 +75,64 @@ body {
     overflow: visible;
     height: 100%;
 }
+
+/* SCROLLBAR STYLE */
+::-webkit-scrollbar {
+    position: absolute;
+    height: 0.4vh;
+    width: 0.6vh;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    margin-right: 1.2vh;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+
+/* BUTTONS */
+.mbutton {
+    font-family: "Urbanist Bold", sans-serif;
+    font-size: 2.8vh;
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+    padding: 0.8vh 1.5vh;
+    border: 0.2vh solid var(--color-borderwhite);
+    transition: 0.2s ease-in-out;
+    user-select: none;
+}
+
+.mbutton:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    text-shadow: 0vh 0vh 3vh rgba(255, 255, 255, 0.623);
+}
+
+.mbutton.gold {
+    background-color: var(--color-primary);
+}
+
+.mbutton.big {
+    padding: 1.2vh 2.5vh;
+}
+
+.mbutton.stroked {
+    outline: 0.1vh solid var(--color-white);
+    outline-color: var(--color-secondary);
+    outline-offset: 0.3vh;
+}
+
+.mbutton.stroked.gold {
+    outline-color: var(--color-primary);
+}
+
+/* RESPONSIVE STYLES */
 
 @media (max-width: 1300px) {
     .readzone {

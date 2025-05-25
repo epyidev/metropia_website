@@ -1,0 +1,61 @@
+.home .hero {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+}
+
+.home .hero .background {
+    position: absolute;
+    opacity: 0.35;
+    filter: blur(1vh);
+    z-index: -1;
+}
+
+.home .hero .description {
+    font-family: "Urbanist Medium", sans-serif;
+    font-size: 2.0vh;
+    text-align: center;
+    color: var(--color-gray);
+    margin-top: 2vh;
+    width: 37vw;
+}
+
+.home .hero .description strong {
+    color: var(--color-white);
+    font-weight: 300;
+}
+
+.home .columns {
+    display: flex;
+    gap: 3vh;
+}
+
+.home .columns .column {
+    width: 50%;
+
+    font-family: "Urbanist Medium", sans-serif;
+    font-size: 2.0vh;
+    color: var(--color-gray);
+    text-align: justify;
+    margin: 0;
+}
+
+.home .columns img {
+    width: 100%;
+}
+
+/* RESPONSIVE STYLES */
+
+@media (max-width: 1300px) {
+    .home .hero .description {
+        width: 90vw;
+    }
+    
+    .home .hero .logo {
+        width: 70vw;
+    }
+}

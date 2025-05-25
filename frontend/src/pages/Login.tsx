@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { login } from '../api/auth';
+import Navbar from '../components/Navbar';
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -10,14 +11,16 @@ const Login: React.FC = () => {
             const response = await login(email, password);
             alert(`Bienvenue ${response.data.username}`);
             localStorage.setItem('token', response.data.token);
+            console.log(response.data)
             localStorage.setItem('username', response.data.username);
         } catch (err) {
             alert('Identifiants incorrects');
         }
     };
-
+    
     return (
         <div>
+            <Navbar />
             <h2>Connexion</h2>
             <input placeholder="Email" onChange={e => setEmail(e.target.value)} />
             <input placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />

@@ -1,0 +1,32 @@
+.blocktitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blocktitle .title {
+    font-family: "Urbanist Bold", sans-serif;
+    font-size: 4.0vh;
+    color: var(--color-white);
+    text-align: center;
+    margin: 0;
+}
+
+.blocktitle .subtitle {
+    font-family: "Urbanist Medium", sans-serif;
+    font-size: 2.0vh;
+    color: var(--color-gray);
+    text-align: center;
+    margin: 0;
+}
+
+/* RESPONSIVE STYLES */
+
+@media (max-width: 1300px) {
+    .blocktitle .title {
+        font-size: 3.0vh;
+    }
+    .blocktitle .subtitle {
+        font-size: 1.5vh;
+    }
+}
