@@ -140,6 +140,23 @@ body {
     outline-color: var(--color-primary);
 }
 
+input {
+    font-family: "Urbanist", sans-serif;
+    font-size: 2.0vh;
+    color: var(--color-white);
+    background-color: transparent;
+    border: 0.1vh solid var(--color-gray);
+    padding: 0.5vh 1.0vh;
+    outline: none;
+    transition: 0.2s ease-in-out;
+}
+
+input:focus {
+    border: 0.1vh solid var(--color-white);
+    transition: 0.2s ease-in-out;
+}
+
+
 /* LOAD BAR */
 #nprogress .bar {
 background: var(--color-primary) !important;
