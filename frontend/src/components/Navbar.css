@@ -40,6 +40,13 @@
 .navbar .logo {
     height: 60%;
     margin-right: 1.5vh;
+    transition: 0.1s ease-in-out;
+}
+
+.navbar .logo:hover {
+    cursor: pointer;
+    scale: 1.1;
+    transition: 0.1s ease-in-out;
 }
 
 .navbar .button {
@@ -135,4 +142,93 @@
     filter: brightness(1.8);
     cursor: pointer;
     user-select: none;
+}
+
+.navbar .burger {
+    box-shadow: 0vh 0vh 3vh rgba(255, 255, 255, 0);
+    overflow: visible;
+    transition: 0.1s ease-in-out;
+}
+
+.navbar .burger:hover {
+    cursor: pointer;
+    box-shadow: 0vh 0vh 3vh rgba(255, 255, 255, 0.137);
+    transition: 0.1s ease-in-out;
+    user-select: none;
+}
+
+/* MOBILE NAVBAR */
+.mnavbar {
+    position: fixed;
+    background-color: var(--color-background-secondary);
+    margin-top: 7vh;
+    height: 93vh;
+    width: 70vw;
+    z-index: 999;
+    left: 0;
+    margin-left: 30vw;
+    top: 0;
+    transform: translateX(100%);
+    transition: 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mnavbar.opened {
+    transform: translateX(0);
+    transition: 0.3s ease-in-out;
+}
+
+.mnavbar .button {
+    margin-right: 1.5vh;
+    transition: 0.2s ease-in-out;
+    padding-left: 2vh;
+    padding-top: 2vh;
+    font-family: "Urbanist Medium", sans-serif;
+    font-size: 3.0vh;
+}
+
+.mnavbar .button:hover {
+    cursor: pointer;
+    text-shadow: 0vh 0vh 3vh rgba(255, 255, 255, 0.623);
+    transition: 0.1s ease-in-out;
+    user-select: none;
+}
+
+.mnavbar .button.download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: var(--color-primary);
+    height: 100%;
+    margin-right: 0vh;
+    padding-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+.mnavbar .predownload {
+    bottom: 0;
+    width: 100%;
+}
+
+.mnavbar .button.download:hover {
+    filter: brightness(1.3);
+    scale: 1.00;
+}
+
+.mnavbar .button.download small {
+    font-family: "Urbanist", sans-serif;
+    font-size: 1.5vh;
+    color: var(--color-white);
+}
+
+/* RESPONSIVE STYLES */
+
+@media (min-width: 1300px) {
+    .mnavbar {
+        display: none;
+    }
 }

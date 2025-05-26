@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { register } from "../api/auth";
 import Block from "../components/Block";
 import PageWrapper from "../components/PageWrapper";
@@ -10,6 +10,10 @@ import BlockTitle from "../components/BlockTitle";
 interface RegisterProps {}
 
 const Register: React.FC<RegisterProps> = ({}) => {
+  useEffect(() => {
+    document.title = "Metropia - Créer un compte";
+  }, []);
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,11 +41,11 @@ const Register: React.FC<RegisterProps> = ({}) => {
       return;
     }
 
-		// Vérification que les mots de passe correspondent
-		if (password !== repeatPassword) {
-			sendNotification("error", "Les mots de passe ne correspondent pas.", 5000);
-			return;
-		}
+    // Vérification que les mots de passe correspondent
+    if (password !== repeatPassword) {
+      sendNotification("error", "Les mots de passe ne correspondent pas.", 5000);
+      return;
+    }
 
     try {
       const response = await register(username, email, password);

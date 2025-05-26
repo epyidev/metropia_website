@@ -10,9 +10,14 @@
 
 .home .hero .background {
     position: absolute;
+    height: 100vh;
     opacity: 0.35;
     filter: blur(1vh);
     z-index: -1;
+}
+
+.home .hero .logo {
+    width: 30vw;
 }
 
 .home .hero .description {
