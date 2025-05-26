@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import { useNotification } from "./NotificationProvider";
 
 const SERVER_STATUS_URL = import.meta.env.VITE_CONNECTED_PLAYERS_API_URL;
 
 const Navbar: React.FC = () => {
     const [playerCount, setPlayerCount] = useState<number | null>(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const navigate = useNavigate();
+    const { sendNotification } = useNotification();
 
     useEffect(() => {
         let isMounted = true;
@@ -60,7 +64,7 @@ const Navbar: React.FC = () => {
             <div className="readzone">
                 <div className="left">
                     <img className="logo" src="/images/logo_white.png" alt="Logo" />
-                    <div className="button desktop" onClick={() => window.location.href = "/"}>Accueil</div>
+                    <div className="button desktop" onClick={() => navigate("/")}>Accueil</div>
                     <div className="button desktop">Wiki</div>
                     <div className="button desktop">Nous soutenir</div>
                 </div>
@@ -76,12 +80,22 @@ const Navbar: React.FC = () => {
                                 {localStorage.getItem("username") ? (
                                     <>
                                         <div className="item">Mon profil</div>
-                                        <div className="item">Déconnexion</div>
+                                        <div
+                                            className="item"
+                                            onClick={() => {
+                                                localStorage.removeItem("token");
+                                                localStorage.removeItem("username");
+                                                sendNotification("success", "Vous êtes déconnecté !", 5000);
+                                                navigate("/");
+                                            }}
+                                        >
+                                            Déconnexion
+                                        </div>
                                     </>
                                 ) : (
                                     <>
-                                        <div className="item" onClick={() => window.location.href = "/login"}>Connexion</div>
-                                        <div className="item" onClick={() => window.location.href = "/register"}>Inscription</div>
+                                        <div className="item" onClick={() => navigate("/login")}>Connexion</div>
+                                        <div className="item" onClick={() => navigate("/register")}>Inscription</div>
                                     </>
                                 )}
                             </div>

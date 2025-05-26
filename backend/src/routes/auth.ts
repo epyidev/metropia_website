@@ -11,11 +11,18 @@ router.post('/register', async (req, res) => {
 
   try {
     const hash = await bcrypt.hash(password, 10);
-    await db.query(
+    const [result]: any = await db.query(
       'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
       [username, email, hash]
     );
-    res.json({ message: 'User registered successfully' });
+    // Auto-login: generate JWT token
+    const userId = result.insertId;
+    const token = jwt.sign({ id: userId, username }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
+    res.json({ 
+      message: 'User registered successfully',
+      token: token,
+      username: username
+    });
   } catch (error) {
     res.status(500).json({ message: 'Error registering user', error });
   }

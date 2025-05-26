@@ -140,6 +140,16 @@ body {
     outline-color: var(--color-primary);
 }
 
+/* LOAD BAR */
+#nprogress .bar {
+background: var(--color-primary) !important;
+}
+
+#nprogress .spinner .spinner-icon {
+    border-top-color: var(--color-primary) !important;
+    border-left-color: var(--color-primary) !important;
+}
+
 /* RESPONSIVE STYLES */
 
 @media (max-width: 1300px) {

@@ -1,0 +1,65 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FOOTER */
+.footer .readzone {
+  height: 13vh;
+  display: flex;
+  flex-direction: row;
+  border-top: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer .readzone .info {
+  color: #9d9d9d;
+  font-family: "Urbanist Bold", sans-serif;
+  font-size: 1.8vh;
+  background-color: transparent;
+  transition: 0.2s ease;
+  border: 0.2vh solid #9d9d9d;
+  padding: 0vh 1.5vh;
+  min-height: 5vh;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  max-height: 5vh;
+  text-decoration: none;
+}
+
+.footer .readzone .info:hover {
+  filter: brightness(1.4);
+  text-decoration: none;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.footer .readzone .info:active {
+  text-decoration: none;
+}
+
+.footer .readzone .info:focus {
+  text-decoration: none;
+}
+
+.footer .readzone .info img {
+  height: 3.5vh;
+  margin-left: 0.5vh;
+}
+
+/* RESPONSIVE STYLES */
+
+@media (max-width: 800px) {
+  .footer .readzone {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
