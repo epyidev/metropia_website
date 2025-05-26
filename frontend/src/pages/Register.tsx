@@ -10,6 +10,9 @@ import BlockTitle from "../components/BlockTitle";
 interface RegisterProps {}
 
 const Register: React.FC<RegisterProps> = ({}) => {
+  const navigate = useNavigate();
+  const { sendNotification } = useNotification();
+
   useEffect(() => {
     document.title = "Metropia - Créer un compte";
   }, []);
@@ -18,8 +21,6 @@ const Register: React.FC<RegisterProps> = ({}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const navigate = useNavigate();
-  const { sendNotification } = useNotification();
 
   const handleRegister = async () => {
     // Vérification des champs vides

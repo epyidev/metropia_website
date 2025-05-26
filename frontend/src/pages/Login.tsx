@@ -10,14 +10,15 @@ import "./pagestyles/Login.css";
 interface LoginProps {}
 
 const Login: React.FC<LoginProps> = ({}) => {
+  const navigate = useNavigate();
+  const { sendNotification } = useNotification();
+
   useEffect(() => {
     document.title = "Metropia - Connexion";
   }, []);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-  const { sendNotification } = useNotification();
 
   const handleLogin = async () => {
     if (!username.trim() || !password.trim()) {
@@ -34,6 +35,18 @@ const Login: React.FC<LoginProps> = ({}) => {
       sendNotification("error", "Il n'éxiste pas d'utilisateur avec ce nom d'utilisateur et ce mot de passe.", 5000);
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        handleLogin();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [username, password]);
 
   return (
     <PageWrapper>

@@ -24,7 +24,6 @@ const Navbar: React.FC = () => {
         }
         const res = await fetch(SERVER_STATUS_URL);
         const json = await res.json();
-        console.log("Player count fetched:", json);
         if (isMounted) {
           if (json.status !== "error") {
             setPlayerCount(json.players.now);
@@ -85,6 +84,12 @@ const Navbar: React.FC = () => {
 							}}>
                 Mon profil
               </div>
+							<div className="button" onClick={() => {
+								navigate("/imagehost");
+								setIsMobileMenuOpened(false);
+							}}>
+								Hébergeur d'images
+							</div>
               <div
                 className="button"
                 onClick={() => {
@@ -152,6 +157,9 @@ const Navbar: React.FC = () => {
                   {localStorage.getItem("username") ? (
                     <>
                       <div className="item">Mon profil</div>
+											<div className="item" onClick={() => {
+												navigate("/imagehost");
+											}}>Hébergeur d'images</div>
                       <div
                         className="item"
                         onClick={() => {

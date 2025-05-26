@@ -160,6 +160,7 @@ input:focus {
 }
 
 
+
 /* LOAD BAR */
 #nprogress .bar {
 background: var(--color-primary) !important;

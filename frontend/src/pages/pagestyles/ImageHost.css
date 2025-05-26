@@ -1,0 +1,95 @@
+.imagehost .selectimage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+}
+
+.imagehost .sendimage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+}
+
+.imagehost .files {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.imagehost .files span {
+    font-family: "Urbanist Medium", sans-serif;
+    font-size: 1.5vh;
+    color: var(--color-gray);
+    text-align: center;
+    margin-top: 2vh;
+}
+
+.imagehost .files .item {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Urbanist", sans-serif;
+    font-size: 1.7vh;
+    color: var(--color-white);
+    border: 0.1vh solid var(--color-gray);
+    outline: none;
+    transition: 0.2s ease-in-out;
+    height: 8vh;
+}
+
+.imagehost .files .item .mbutton {
+    width: max-content;
+    padding: 0;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    border: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagehost .files .item .infos {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    padding: 1vh;
+}
+
+.imagehost .files .item .infos img {
+    height: 100%;
+}
+
+/* RESPONSIVE STYLES */
+
+@media (max-width: 1300px) {
+    .imagehost .files .item {
+        flex-direction: column;
+        height: max-content;
+    }
+
+    .imagehost .files .item .infos img {
+    height: 10vh;
+
+}
+
+.imagehost .files .item .infos {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vh;
+}
+
+.imagehost .files .item .mbutton {
+    width: 100%;
+    padding: 0;
+    height: 5vh;
+    margin-top: 1vh;
+}
+}

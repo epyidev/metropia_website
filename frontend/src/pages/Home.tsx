@@ -10,11 +10,11 @@ import { useEffect } from "react";
 interface HomeProps {}
 
 const Home: React.FC<HomeProps> = ({}) => {
+  const { sendNotification } = useNotification();
+  
   useEffect(() => {
     document.title = "Metropia - Accueil";
   }, []);
-
-  const { sendNotification } = useNotification();
 
   return (
     <PageWrapper>

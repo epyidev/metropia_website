@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Layout from "./Layout";
 import { AnimatePresence } from "framer-motion";
 import NotificationProvider from "./components/NotificationProvider";
+import ImageHost from "./pages/ImageHost";
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
               <Route index element={<Home />} />
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
+              <Route path="imagehost" element={<ImageHost />} />
             </Route>
           </Routes>
         </AnimatePresence>
