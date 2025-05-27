@@ -27,6 +27,7 @@
   display: block;
   margin-top: 4vh;
   width: 42.7vh;
+  z-index: 999;
 }
 
 .wikipage .result {
@@ -86,6 +87,16 @@
   color: var(--color-secondary) !important;
   cursor: pointer;
   margin-left: 1.2vh;
+}
+
+.wikipage a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.wikipage a:hover {
+    color: var(--color-secondary);
+    filter: brightness(1.8);
 }
 
 @media (max-width: 1300px) {

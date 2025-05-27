@@ -6,11 +6,13 @@ import FaqItem from "../components/FaqItem";
 import PageWrapper from "../components/PageWrapper";
 import { useNotification } from "../components/NotificationProvider";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface HomeProps {}
 
 const Home: React.FC<HomeProps> = ({}) => {
   const { sendNotification } = useNotification();
+  const navigate = useNavigate();
   
   useEffect(() => {
     document.title = "Metropia - Accueil";
@@ -25,7 +27,9 @@ const Home: React.FC<HomeProps> = ({}) => {
           <p className="description">
             Depuis plus de <strong>5 ans</strong>, Metropia fait vivre une <strong>Aventure Roleplay Riche</strong>, portée par la <strong>qualité</strong>, <strong>l'immersion</strong> et le <strong>plaisir de jouer ensemble.</strong>
           </p>
-          <div className="mbutton stroked gold big" onClick={() => {}}>
+          <div className="mbutton stroked gold big" onClick={() => {
+            navigate("/wiki/play");
+          }}>
             Jouer
           </div>
         </div>

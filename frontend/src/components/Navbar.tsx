@@ -122,7 +122,10 @@ const Navbar: React.FC = () => {
             </>
           )}
           <div className="predownload">
-            <div className="button download">
+            <div className="button download" onClick={() => {
+              navigate("/wiki/play");
+              setIsMobileMenuOpened(false);
+            }}>
               Commencer à jouer
               <small>{playerCount === null ? "Chargement..." : playerCount > 0 ? `${playerCount} joueur${playerCount > 1 ? "s" : ""} connecté${playerCount > 1 ? "s" : ""}` : null}</small>
             </div>
@@ -189,7 +192,9 @@ const Navbar: React.FC = () => {
               </div>
             </div>
             <div className="predownload desktop">
-              <div className="button download">
+              <div className="button download" onClick={() => {
+                navigate("/wiki/play");
+              }}>
                 Commencer à jouer
                 <small>{playerCount === null ? "Chargement..." : playerCount > 0 ? `${playerCount} joueur${playerCount > 1 ? "s" : ""} connecté${playerCount > 1 ? "s" : ""}` : null}</small>
               </div>
