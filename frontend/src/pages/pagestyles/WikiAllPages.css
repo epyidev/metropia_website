@@ -1,0 +1,26 @@
+/* Styles pour la page WikiAllPages */
+.wikiallpages .list {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  margin-top: 2vh;
+}
+
+.wikiallpages .item {
+  font-family: "Urbanist Medium", sans-serif;
+  font-size: 2.2vh;
+  color: var(--color-gray);
+  transition: 0.2s ease-in-out;
+}
+
+.wikiallpages .item:hover {
+  text-shadow: 0vh 0vh 3vh rgba(255, 255, 255, 0.377);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.wikiallpages .error {
+  color: var(--color-error);
+  font-size: 2vh;
+  margin-top: 2vh;
+}

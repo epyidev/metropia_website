@@ -13,3 +13,25 @@ CREATE TABLE imagehost (
     path VARCHAR(255) NOT NULL,
     uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE wiki_pages (
+    id CHAR(36) PRIMARY KEY, -- UUID
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    author_id INT, -- ou le type de ta clé utilisateur
+    CONSTRAINT fk_author FOREIGN KEY (author_id) REFERENCES users(id)
+);
+
+CREATE TABLE wiki_page_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    page_id CHAR(36) NOT NULL,
+    content TEXT NOT NULL,
+    edited_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    editor_id INT,
+    CONSTRAINT fk_page FOREIGN KEY (page_id) REFERENCES wiki_pages(id),
+    CONSTRAINT fk_editor FOREIGN KEY (editor_id) REFERENCES users(id)
+);
+
+ALTER TABLE users ADD COLUMN rank INT NOT NULL DEFAULT 0;

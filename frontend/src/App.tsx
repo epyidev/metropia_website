@@ -7,6 +7,10 @@ import Layout from "./Layout";
 import { AnimatePresence } from "framer-motion";
 import NotificationProvider from "./components/NotificationProvider";
 import ImageHost from "./pages/ImageHost";
+import WikiMain from "./pages/WikiMain";
+import WikiPage from "./pages/WikiPage";
+import WikiCreate from "./pages/WikiCreate";
+import WikiAllPages from "./pages/WikiAllPages";
 
 const App: React.FC = () => {
   return (
@@ -19,6 +23,10 @@ const App: React.FC = () => {
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
               <Route path="imagehost" element={<ImageHost />} />
+              <Route path="wiki" element={<WikiMain />} />
+              <Route path="wiki/:id" element={<WikiPage />} />
+              <Route path="wiki-create" element={<WikiCreate />} />
+              <Route path="wiki-all-pages" element={<WikiAllPages />} />
             </Route>
           </Routes>
         </AnimatePresence>

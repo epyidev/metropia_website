@@ -29,6 +29,9 @@ const Login: React.FC<LoginProps> = ({}) => {
       const response = await login(username, password);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("username", response.data.username);
+      if (response.data.rank !== undefined) {
+        localStorage.setItem("rank", response.data.rank.toString());
+      }
       sendNotification("success", "Vous êtes désormais connecté !", 5000);
       navigate("/");
     } catch (err) {

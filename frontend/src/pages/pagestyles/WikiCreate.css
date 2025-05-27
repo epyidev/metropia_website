@@ -1,0 +1,24 @@
+/* Style dédié à la page de création de page wiki */
+.wikicreate .wikicreateform {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.wikicreate .wikicreateform .item {
+    display: flex;
+    flex-direction: column;
+    font-family: "Urbanist Medium", sans-serif;
+    font-size: 2.0vh;
+    color: var(--color-gray);
+    gap: 0.5vh;
+}
+
+.wikicreate .wikicreateform .mbutton {
+    width: max-content;
+}
+
+.wikicreate .wikicreateform .mbutton.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}

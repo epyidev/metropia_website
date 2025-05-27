@@ -159,8 +159,6 @@ input:focus {
     transition: 0.2s ease-in-out;
 }
 
-
-
 /* LOAD BAR */
 #nprogress .bar {
 background: var(--color-primary) !important;
@@ -169,6 +167,11 @@ background: var(--color-primary) !important;
 #nprogress .spinner .spinner-icon {
     border-top-color: var(--color-primary) !important;
     border-left-color: var(--color-primary) !important;
+}
+
+hr {
+    color: var(--color-gray);
+    opacity: 0.5;
 }
 
 /* RESPONSIVE STYLES */

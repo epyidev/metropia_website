@@ -11,8 +11,9 @@ router.post('/register', async (req, res) => {
 
   try {
     const hash = await bcrypt.hash(password, 10);
+    // Ajoute rank à la création d'utilisateur (par défaut 0)
     const [result]: any = await db.query(
-      'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
+      'INSERT INTO users (username, email, password, rank) VALUES (?, ?, ?, 0)',
       [username, email, hash]
     );
     // Auto-login: generate JWT token
@@ -36,11 +37,13 @@ router.post('/login', async (req, res) => {
     const [rows] = await db.query('SELECT * FROM users WHERE username = ?', [username]);
     const user = (rows as any)[0];
 
+    // Ajoute la propriété rank dans le JWT et la réponse
     if (user && await bcrypt.compare(password, user.password)) {
-      const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
+      const token = jwt.sign({ id: user.id, username: user.username, rank: user.rank }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
       res.json({ 
         token: token,
-        username: user.username
+        username: user.username,
+        rank: user.rank
        });
     } else {
       res.status(401).json({ message: 'Invalid credentials' });

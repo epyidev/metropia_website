@@ -72,7 +72,10 @@ const Navbar: React.FC = () => {
           >
             Accueil
           </div>
-          <div className="button">Wiki</div>
+          <div className="button" onClick={() => {
+            navigate("/wiki");
+            setIsMobileMenuOpened(false);
+          }}>Wiki</div>
           <div className="button">Nous soutenir</div>
         </div>
         <div className="down">
@@ -136,7 +139,7 @@ const Navbar: React.FC = () => {
             <div className="button desktop" onClick={() => navigate("/")}>
               Accueil
             </div>
-            <div className="button desktop">Wiki</div>
+            <div className="button desktop" onClick={() => navigate("/wiki")}>Wiki</div>
             <div className="button desktop">Nous soutenir</div>
           </div>
           <div className="right">

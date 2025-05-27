@@ -1,0 +1,35 @@
+.wiki-content-with-lists {
+  min-height: 42vh;
+}
+
+.wikilist {
+  background-color: var(--color-background-main);
+  padding: 1vh;
+  font-size: 1.7vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wikilist .title {
+    font-size: 2.0vh;
+    font-family: "Urbanist SemiBold", sans-serif;
+    margin-bottom: 1vh;
+}
+
+.wikilist .title.void {
+    margin-bottom: 0;
+}
+
+.wikilist .item {
+    font-size: 1.9vh;
+    font-family: "Urbanist", sans-serif;
+    margin-left: 1vh;
+    transition: 0.2s ease;
+}
+
+.wikilist .item:hover {
+    cursor: pointer;
+    text-shadow: 0vh 0vh 3vh rgba(255, 255, 255, 0.377);
+    transition: 0.2s ease;
+}
+

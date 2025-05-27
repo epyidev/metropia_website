@@ -1,0 +1,106 @@
+.wikipage .header {
+  margin-bottom: 4vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.wikipage .header .title {
+  font-size: 3vh;
+  font-family: "Urbanist Bold", sans-serif;
+}
+
+.wikipage .searchbar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2vh;
+}
+
+.wikipage .results {
+  position: absolute;
+  background-color: var(--color-background-secondary);
+  box-shadow: 0vh 0vh 2vh rgba(0, 0, 0, 0.2);
+  font-size: 1.7vh;
+  color: var(--color-white);
+  max-height: 28vh;
+  overflow-y: auto;
+  display: block;
+  margin-top: 4vh;
+  width: 42.7vh;
+}
+
+.wikipage .result {
+  padding: 0.5vh 1vh;
+  color: var(--color-white);
+  font-family: "Urbanist Medium", sans-serif;
+  font-size: 1.8vh;
+  transition: 0.2s ease-in-out;
+}
+
+.wikipage .result:hover {
+  background-color: var(--color-background-main);
+  filter: brightness(1.8);
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.wikipage .tagsedit,
+.tagsview {
+  margin-bottom: 2.2vh;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1vh;
+  margin-top: 1.2vh;
+}
+
+.wikipage .actions {
+  display: flex;
+  gap: 1.2vh;
+  margin-bottom: 2.2vh;
+}
+
+.wikipage .actionstitle {
+    font-size: 2.1vh;
+    font-family: "Urbanist SemiBold", sans-serif;
+    color: var(--color-white);
+    margin-bottom: 1.2vh;
+}
+
+.wiki-history-modal pre {
+  background: var(--color-background-main);
+  color: var(--color-white);
+  padding: 1.2vh;
+  max-height: 25vh;
+  overflow: auto;
+  margin: 0;
+  margin-top: 1.2vh;
+}
+
+.wiki-history-modal .mbutton {
+  margin-bottom: 1.2vh;
+}
+
+.wiki-history-modal span[style*="color: orange"] {
+  color: var(--color-secondary) !important;
+  cursor: pointer;
+  margin-left: 1.2vh;
+}
+
+@media (max-width: 1300px) {
+  .wikipage .header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vh;
+  }
+
+  .wikipage .actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.2vh;
+    margin-bottom: 2.2vh;
+    text-align: center;
+  }
+}
