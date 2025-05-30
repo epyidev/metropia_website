@@ -4,14 +4,12 @@ import "./pagestyles/Home.css";
 
 import FaqItem from "../components/FaqItem";
 import PageWrapper from "../components/PageWrapper";
-import { useNotification } from "../components/NotificationProvider";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface HomeProps {}
 
 const Home: React.FC<HomeProps> = ({}) => {
-  const { sendNotification } = useNotification();
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -72,7 +70,9 @@ const Home: React.FC<HomeProps> = ({}) => {
               </p>
               <p>C'est là, sur cette île, que s'épanouissent en harmonie de nombreuses créatures mystiques. Et c'est aussi là que quelques rares élus parmi les hommes se retrouvent, suite à des interventions divines, condamnés à y demeurer jusqu'à la fin de leur existence.</p>
             </div>
-            <div className="mbutton stroked small">En savoir plus</div>
+            <div className="mbutton stroked small" onClick={() => {
+              navigate("/wiki/lore");
+            }}>En savoir plus</div>
           </div>
         </Block>
         <Block>

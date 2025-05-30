@@ -23,7 +23,6 @@ const ImageHost: React.FC<ImageHostProps> = ({}) => {
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
-  const [uploadedUrl, setUploadedUrl] = useState<string | null>(null);
   const [myFiles, setMyFiles] = useState<
     {
       filename: string;
@@ -48,7 +47,6 @@ const ImageHost: React.FC<ImageHostProps> = ({}) => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setError(null);
-    setUploadedUrl(null);
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
       if (!["image/png", "image/jpeg"].includes(file.type)) {
@@ -67,7 +65,6 @@ const ImageHost: React.FC<ImageHostProps> = ({}) => {
     if (!selectedFile) return;
     setUploading(true);
     setError(null);
-    setUploadedUrl(null);
     const formData = new FormData();
     formData.append("file", selectedFile);
     try {
@@ -78,7 +75,6 @@ const ImageHost: React.FC<ImageHostProps> = ({}) => {
       } as any);
       const data = await res.json();
       if (res.ok && data.url) {
-        setUploadedUrl(window.location.origin + data.url);
         fetchMyFiles();
       } else {
         // console.error("Upload error:", data);

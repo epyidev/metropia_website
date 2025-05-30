@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import BlockTitle from "../components/BlockTitle";
 import { searchWikiPages } from "../api/wiki";
 
 interface WikiWrapperProps {
